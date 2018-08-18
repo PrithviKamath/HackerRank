@@ -1,0 +1,2 @@
+select O.Name || '(' || SUBSTR(O.Occupation,0,1) || ')' as Output from Occupations O ORDER BY O.Name;
+select 'There are a total of ' || count(OO.Occupation) || ' ' || lower(OO.Occupation) || 's.' as Output from Occupations OO group by OO.Occupation order by count(OO.Occupation),OO.Occupation;
