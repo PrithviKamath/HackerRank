@@ -1,0 +1,1 @@
+select CONCAT(CONCAT(p.hacker_id,'  '),p.name) from (select h.name,h.hacker_id from Hackers h, Submissions s, Challenges c, Difficulty d where s.challenge_id = c.challenge_id and d.difficulty_level = c.difficulty_level and h.hacker_id = s.hacker_id and d.score = s.score group by h.hacker_id,h.name having count(h.hacker_id) > 1 order by count(h.hacker_id) desc, h.hacker_id asc)p;
