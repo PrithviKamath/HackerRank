@@ -1,0 +1,8 @@
+def merge_the_tools(string, k):
+    result=[]
+    for x in [string[i:i+k] for i in range(0, len(string), k)]:
+        char=''
+        for j in range(0,len(x)):
+            if (x[j] not in char):
+                char=char+x[j]
+        print(char)
