@@ -1,0 +1,7 @@
+select d,p,s,a
+from (select * from (select Name, occupation, (ROW_NUMBER() OVER (PARTITION BY occupation
+                                                                 ORDER BY name)) as row_num
+                    from occupations
+                    order by name asc)
+pivot ( min(name) for occupation in ('Doctor' as d ,'Professor' as p ,'Singer' as s ,'Actor' as a))
+order by row_num);
