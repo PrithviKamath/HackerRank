@@ -1,0 +1,24 @@
+def median(nums):
+    if len(nums)%2 == 0:
+        return int(sum(nums[len(nums)//2-1:len(nums)//2+1])/2)
+    else:
+        return nums[len(nums)//2]
+
+size=int(input())
+numbers=list(map(int, input().split()))
+frequency=list(map(int, input().split()))
+s=[]
+for x in range(size):
+    for y in range(frequency[x]):
+        s.append(numbers[x])
+
+sorted_numbers=sorted(s)
+N = sum(frequency)
+if size%2 != 0:
+    q1 = median(sorted_numbers[:N//2])
+    q3 = median(sorted_numbers[N//2+1:])
+else:
+    q1 = median(sorted_numbers[:N//2])
+    q3 = median(sorted_numbers[N//2:])
+
+print(round(float(q3-q1), 1))
