@@ -1,0 +1,7 @@
+size=input()
+numbers=list(map(int, input().split()))
+weights=list(map(int, input().split()))
+result=[]
+for x in range(len(numbers)):
+    result.insert(x,numbers[x]*weights[x])
+print(round(sum(result)/sum(weights),1))
